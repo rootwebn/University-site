@@ -40,7 +40,8 @@ const Section2 = () => {
                       target='_blank'
                       rel="noopener noreferrer"
                       href={item.linkWork}
-                      className={sora.className}>
+                      className={sora.className}
+                    >
                       Open Now!
                     </Link>
                   </button>
@@ -52,7 +53,6 @@ const Section2 = () => {
                   <p className={sora.className}>{item.date}</p>
                 </div>
               </div>
-
             </div>
           ))}
         </div>

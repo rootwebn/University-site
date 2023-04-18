@@ -17,7 +17,7 @@ const Header = () => {
             <Link href={'#homework'}>
               <li className={raleWay.className}>Homeworks</li>
             </Link>
-            <Link href={'/'}>
+            <Link href={'#contact'}>
               <li className={raleWay.className}>Contact Me</li>
             </Link>
           </ul>
