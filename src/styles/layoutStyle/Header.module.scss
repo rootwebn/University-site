@@ -1,0 +1,33 @@
+@import '../variables.scss';
+
+.headerLayout{
+  padding-block: 1rem;
+  background-color: $header-background-color;
+  max-height: 15rem;
+  min-width: 100vw;
+  .headerContent{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem 10rem;
+
+    .headerTitle{
+      font-size: 1.2rem;
+      p{
+        color: whitesmoke;
+      }
+    }
+    .headerMenu{
+      min-width: 20rem;
+      .menu{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      li{
+        list-style: none;
+        color: white;
+      }
+    }
+  }
+}

@@ -1,0 +1,150 @@
+@import "../variables.scss";
+
+.section2Container {
+  background-color: $section2-background-color;
+  padding: $paddingSection2;
+  h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .section2Layout {
+    .containerItems {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(1, 1fr);
+      gap: 1rem;
+      .item {
+        @include itemStyle();
+        grid-template-columns: 0.5fr 1fr;
+        .itemHeader {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          grid-row: 1/2;
+          grid-column: 2/3;
+          p {
+            @include FS-flex(1rem, 4, 0.5rem, 1.5rem);
+          }
+        }
+
+        .itemImage {
+          grid-row: 1/3;
+          grid-column: 1/2;
+          max-width: 15vw;
+          max-height: 37vh;
+        }
+
+        .itemDesc {
+          display: grid;
+          grid-template-rows: 0.5fr 1fr;
+          grid-column: 2/3;
+          grid-row: 2/3;
+          row-gap: 0.5rem;
+          padding: 0 0 0 1rem;
+          .itemTagLayout {
+            display: flex;
+            align-items: center;
+            grid-row: 1/2;
+            max-height: 2rem;
+            .itemTag {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              border: 2px solid black;
+              border-radius: 2rem;
+              padding: 0 0.5rem;
+              p {
+                @include FS-flex(1rem, 4, 0.5rem, 1rem);
+              }
+            }
+          }
+
+          .itemBtn {
+            @include itemBtnStyle();
+            max-height: 2rem;
+          }
+          .itemAuthorName,
+          .itemDate {
+            display: flex;
+            align-items: flex-start;
+            grid-row: 2/3;
+          }
+        }
+      }
+      .item:nth-child(1) {
+        grid-template-columns: 1fr;
+        grid-row: 1/3;
+        max-height: none;
+        padding: 2rem 0;
+        .itemHeader {
+          text-align: center;
+          grid-row: 1/2;
+          grid-column: 1/2;
+          p {
+            @include FS-flex(1rem, 4, 0.5rem, 1.5rem);
+          }
+        }
+
+        .itemImage {
+          justify-self: center;
+          max-width: 25vw;
+          max-height: 20rem;
+          grid-row: 2/3;
+          grid-column: 1/2;
+          border-radius: 2rem;
+        }
+
+        .itemDesc {
+          display: grid;
+          grid-row: 3/4;
+          grid-column: 1/2;
+          row-gap: 0.3rem;
+          padding: 1rem 1rem 0 1rem;
+
+          .itemAuthorName {
+            display: flex;
+            align-items: center;
+            grid-row: 2/3;
+          }
+          .itemDate {
+            display: flex;
+            grid-row: 3/4;
+            max-width: none;
+          }
+          .itemBtn {
+            @include itemBtnStyle();
+          }
+        }
+      }
+      .item:nth-child(2) {
+        padding-block: 1rem;
+        .itemImage{
+          border-radius: 1rem;
+          max-height: 35vh;
+        }
+        .itemDate {
+          p {
+            max-width: 100px;
+          }
+        }
+      }
+      .item:nth-child(3) {
+        
+        padding-block: 1rem;
+        .itemImage {
+          border-radius: 1rem;
+          grid-row: 1/3;
+          grid-column: 1/2;
+          max-width: 15vw;
+          max-height: 30vh;
+        }
+
+        .itemDate {
+          p {
+            max-width: 100px;
+          }
+        }
+      }
+    }
+  }
+}

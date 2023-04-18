@@ -1,0 +1,66 @@
+@import "../variables.scss";
+
+.section1Container {
+  min-height: 80vh;
+  background-color: $section1-background-color;
+  padding: $paddingSections;
+  .sectionLayout {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    min-height: 50vh;
+    column-gap: 2rem;
+    .sectionDesc {
+      .title {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        min-height: 40vh;
+        p {
+          color: $color-text;
+          @include FS-flex(1rem, 4, 1rem, 2.5rem);
+        }
+      }
+      hr {
+        color: rgb(101, 118, 89);
+        border: 1px solid rgb(101, 118, 89);
+        width: 95%;
+      }
+      .titleAdd {
+        p {
+          color: $color-text;
+          @include FS-flex(1rem, 4, 1rem, 2rem);
+        }
+      }
+      .desc {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        min-height: 25vh;
+        p {
+          color: $color-text;
+          @include FS-flex(1rem, 4, 1rem, 1.5rem);
+        }
+
+        .section1Btn {
+          color: $color-text;
+          @include FS-flex(1rem, 4, 1rem, 1.5rem);
+          background-color: black;
+          border: 2px solid $btn-background-color;
+          border-radius: 2rem;
+          padding: 0.5rem 1rem;
+        }
+      }
+    }
+    .sectionImg {
+      position: relative;
+      left: 2rem;
+      align-self: center;
+      img {
+        border-radius: 20%;
+        height: 400px;
+        width: 600px;
+      }
+    }
+  }
+}

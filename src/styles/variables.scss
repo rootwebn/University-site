@@ -1,0 +1,43 @@
+$color-text: rgb(143, 225, 119);
+$section1-background-color: rgb(22, 115, 102);
+$section2-background-color: rgb(150, 74, 71);
+$section2-items-color: rgb(220, 217, 209);
+$header-background-color: rgba(22, 115, 101, 1);
+$btn-background-color: rgb(22, 115, 102);
+
+$paddingSections: 0 min(10vw, 10rem);
+$paddingSection2: 5rem min(10vw, 10rem);
+
+@mixin FS-flex($base-fs, $fs-scaling, $min-fs, $max-fs) {
+  font-size: clamp(
+    #{$min-fs},
+    calc(#{$base-fs} + #{$fs-scaling} * 1vw),
+    #{$max-fs}
+  );
+}
+
+@mixin itemStyle() {
+  display: grid;
+  background-color: $section2-items-color;
+  padding: 0.1rem 2rem;
+  border-radius: 1rem;
+  row-gap: 0.1rem;
+}
+
+@mixin itemBtnStyle() {
+  display: flex;
+  justify-content: flex-end;
+  grid-row: 1/2;
+  button {
+    background-color: inherit;
+    border: 2px solid black;
+    border-radius: 10rem;
+    padding: 0.2rem 1rem;
+    color: black;
+  }
+  button:hover {
+    transition: 0.3s;
+    border: 2px solid red;
+    color: red;
+  }
+}
