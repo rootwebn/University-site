@@ -1,7 +1,7 @@
 @import '../variables.scss';
 
 .headerLayout{
-  padding-block: 1rem;
+  padding: $paddingHeader;
   background-color: $header-background-color;
   max-height: 15rem;
   min-width: 100vw;
@@ -9,24 +9,42 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 1rem 10rem;
+    padding-bottom: 1rem;
 
     .headerTitle{
+      align-self: center;
       font-size: 1.2rem;
       p{
         color: whitesmoke;
       }
     }
     .headerMenu{
-      min-width: 20rem;
-      .menu{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+      @media screen and (max-width:50em) {
+        min-width: 0;
       }
-      li{
-        list-style: none;
-        color: white;
+      min-width: 30vw;
+      .dropDownBtn{
+        border: none;
+        background-color: inherit;
+        cursor: pointer;
+      }
+      .dropDownMenu{
+        position: absolute;
+        right: 0rem;
+        display: flex;
+        flex-direction: column;
+        background-color: $drop-down-menu-background-color;
+        a{
+          padding: 0.5rem;
+          color: $drop-down-menu-text-color;
+        }
+        a:hover{
+          background-color: $drop-down-menu-text-color-hover;
+          transition: 0.2s linear;
+        }
+        hr{
+          border: 1px solid $drop-down-menu-text-color;
+        }
       }
     }
   }

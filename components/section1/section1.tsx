@@ -15,11 +15,9 @@ const Section1 = () => {
             <p className={sora.className}>
               On this Site will be published homeworks from university subjects.
             </p>
-            <div className={s.titleAdd}>
-              <p className={sora.className}>
-                Computer Science
-              </p>
-            </div>
+            <p className={sora.className}>
+              Computer Science
+            </p>
           </div>
           <hr />
           <div className={s.desc}>
@@ -28,12 +26,12 @@ const Section1 = () => {
               Ab omnis vel et, laboriosam quae repudiandae?
             </p>
             <div>
-              <button className={btnClassName1}>
-                <Link href={'/'}>Open Now</Link>
-              </button>
             </div>
           </div>
         </div>
+        <button className={btnClassName1}>
+          <Link href={'/'}>Open Now</Link>
+        </button>
         <div className={s.sectionImg}>
           <Image src={img1} alt='imgSection1' />
         </div>

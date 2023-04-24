@@ -4,8 +4,15 @@ $section2-background-color: rgb(150, 74, 71);
 $section2-items-color: rgb(220, 217, 209);
 $header-background-color: rgba(22, 115, 101, 1);
 $btn-background-color: rgb(22, 115, 102);
+$drop-down-menu-background-color: rgb(63,119,80);
+$drop-down-menu-text-color: rgb(234,200,135);
+$drop-down-menu-text-color-hover: rgb(243,75,72);
 
+$paddingHeader: 1rem min(10vw, 10rem) 2rem min(10vw, 10rem);
+$paddingHeaderSmallScreen: 1rem min(5vw, 2rem) 2rem min(5vw, 2rem);
 $paddingSections: 0 min(10vw, 10rem);
+$paddingSectionMedium: 0 min(5vw, 5rem) 2rem min(5vw, 5rem);
+$paddingSectionsSmallScreen: 0 min(5vw, 1rem) 1rem min(5vw, 1rem);
 $paddingSection2: 5rem min(10vw, 10rem);
 
 @mixin FS-flex($base-fs, $fs-scaling, $min-fs, $max-fs) {
@@ -29,6 +36,9 @@ $paddingSection2: 5rem min(10vw, 10rem);
   justify-content: flex-end;
   grid-row: 1/2;
   button {
+    @media screen and (max-width: 80em) {
+      padding: 0.2rem 0.5rem;
+    }
     background-color: inherit;
     border: 2px solid black;
     border-radius: 10rem;

@@ -1,19 +1,34 @@
 @import "../variables.scss";
 
 .section2Container {
+  @media screen and (max-width: 70em) {
+    padding: $paddingSectionMedium;
+  }
+  @media screen and (max-width: 40em) {
+    padding: $paddingSectionsSmallScreen;
+  }
   background-color: $section2-background-color;
   padding: $paddingSection2;
   h1 {
     text-align: center;
-    margin-bottom: 2rem;
+    padding-block: 2rem;
   }
   .section2Layout {
     .containerItems {
+      @media screen and (max-width: 80em) {
+        grid-template-rows: none;
+      }
+      @media screen and (max-width: 45em) {
+        display: block;
+      }
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       grid-template-rows: repeat(1, 1fr);
       gap: 1rem;
       .item {
+        @media screen and (max-width: 45em) {
+          margin-block: 1rem;
+        }
         @include itemStyle();
         grid-template-columns: 0.5fr 1fr;
         .itemHeader {
@@ -28,6 +43,9 @@
         }
 
         .itemImage {
+          @media screen and (max-width: 40em) {
+            max-width: 20vw;
+          }
           grid-row: 1/3;
           grid-column: 1/2;
           max-width: 15vw;
@@ -40,7 +58,7 @@
           grid-column: 2/3;
           grid-row: 2/3;
           row-gap: 0.5rem;
-          padding: 0 0 0 1rem;
+          padding: 0 0 0 0.5rem;
           .itemTagLayout {
             display: flex;
             align-items: center;
@@ -54,6 +72,9 @@
               border-radius: 2rem;
               padding: 0 0.5rem;
               p {
+                @media screen and (max-width:80em) {
+                  @include FS-flex(1rem, 4, 0.5rem, 0.8rem);
+                }
                 @include FS-flex(1rem, 4, 0.5rem, 1rem);
               }
             }
@@ -62,6 +83,9 @@
           .itemBtn {
             @include itemBtnStyle();
             max-height: 2rem;
+            a{
+              @include FS-flex(1rem, 4, 0.2rem, 0.8rem);
+            }
           }
           .itemAuthorName,
           .itemDate {
@@ -72,6 +96,9 @@
         }
       }
       .item:nth-child(1) {
+        @media screen and (max-width: 60em) {
+          min-width: 40vw;
+        }
         grid-template-columns: 1fr;
         grid-row: 1/3;
         max-height: none;
@@ -85,7 +112,11 @@
           }
         }
 
-        .itemImage {
+        .itemImage {    
+          @media screen and (max-width: 45em) {
+            max-width: 60vw;
+            max-height: 50vh;
+          }
           justify-self: center;
           max-width: 25vw;
           max-height: 20rem;
@@ -117,30 +148,109 @@
         }
       }
       .item:nth-child(2) {
+        @media screen and (max-width: 80em) {
+          padding: 0.5rem 1rem 0.5rem 0.5rem;
+        }
+        @media screen and (max-width: 45em) {
+          padding: 2rem 1rem 2rem 0.2rem;
+          grid-template-columns: 1fr;
+          grid-row: 1/3;
+        }
+        .itemHeader {
+          @media screen and (max-width: 45em) {
+            grid-row: 1/2;
+            grid-column: 1/2;
+          }
+        }
+        .itemDesc {
+          @media screen and (max-width: 45em) {
+            grid-row: 3/4;
+            grid-column: 1/2;
+          }
+        }
         padding-block: 1rem;
-        .itemImage{
+        .itemImage {
+          @media screen and (max-width: 80em) {
+            align-self: center;
+          }
+          @media screen and (max-width: 45em) {
+            justify-self: center;
+            max-width: 45vw;
+            max-height: 45vh;
+            grid-row: 2/3;
+            grid-column: 1/2;
+          }
           border-radius: 1rem;
           max-height: 35vh;
         }
+        .itemAuthorName{
+          @media screen and (max-width: 45em) {
+            grid-column: 1/2;
+          }
+        }
         .itemDate {
+          @media screen and (max-width: 45em) {
+            grid-column: 1/2;
+            grid-row: 3/4;
+          }
           p {
+            @media screen and (max-width: 45em) {
+              max-width: none;
+            }
             max-width: 100px;
           }
         }
       }
       .item:nth-child(3) {
-        
+        @media screen and (max-width: 80em) {
+          padding: 0.5rem 1rem 0.5rem 0.5rem;
+        }
+        @media screen and (max-width: 45em) {
+          padding: 2rem 1rem 2rem 0.2rem;
+          grid-template-columns: 1fr;
+          grid-row: 1/3;
+        }
         padding-block: 1rem;
+        .itemHeader {
+          @media screen and (max-width: 45em) {
+            grid-row: 1/2;
+            grid-column: 1/2;
+          }
+        }
+        .itemDesc {
+          @media screen and (max-width: 45em) {
+            grid-row: 3/4;
+            grid-column: 1/2;
+          }
+        }
         .itemImage {
+          @media screen and (max-width: 45em) {
+            justify-self: center;
+            max-width: 45vw;
+            max-height: 45vh;
+            grid-row: 2/3;
+            grid-column: 1/2;
+          }
           border-radius: 1rem;
           grid-row: 1/3;
           grid-column: 1/2;
           max-width: 15vw;
           max-height: 30vh;
         }
-
+        .itemAuthorName{
+          @media screen and (max-width: 45em) {
+            grid-column: 1/2;
+          }
+        }
         .itemDate {
+          @media screen and (max-width: 45em) {
+            grid-column: 1/2;
+            grid-row: 3/4;
+          }
           p {
+            @media screen and (max-width: 45em) {
+              max-width: none;
+            }
             max-width: 100px;
           }
         }

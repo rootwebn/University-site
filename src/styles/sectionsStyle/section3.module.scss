@@ -5,7 +5,7 @@
   .section3Layout{
     padding: $paddingSections;
     h1{
-      @include FS-flex(1rem, 4, 2rem, 2.5rem);
+      @include FS-flex(1rem, 4, 1rem, 2.5rem);
       padding-block: 2rem;
       text-align: center;
       color: rgb(236,223,222);
@@ -14,7 +14,7 @@
       .email{
         padding-bottom: 5rem;
         p{
-          @include FS-flex(1rem, 4, 1.5rem, 2rem);
+          @include FS-flex(1rem, 2, 1rem, 2rem);
           color: rgb(236,223,222);
         }
       }
