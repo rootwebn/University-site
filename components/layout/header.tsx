@@ -34,10 +34,12 @@ const Header = () => {
     <div className={s.headerLayout} id='home'>
       <div className={s.headerContent}>
         <div className={s.headerTitle}>
-          <p className={sora.className}>Site Of Homeworks</p>
+          <Link href={'https://university-site-six.vercel.app'} className={sora.className}>
+            Site Of Homeworks
+          </Link>
         </div>
         <div className={s.headerMenu}>
-          {!headerSnap && <HeaderMenu />} 
+          {!headerSnap && <HeaderMenu />}
           {headerSnap && (
             <button className={s.dropDownBtn}>
               <Image
