@@ -1,21 +1,24 @@
 @import '../variables.scss';
 
 .section3Container{
-  background-color: rgb(57,50,204);
+  background-color: $section3-background-color;
   .section3Layout{
+    @media screen and (max-width:40em) {
+      padding: $paddingSectionsSmallScreen;
+    }
     padding: $paddingSections;
     h1{
       @include FS-flex(1rem, 4, 1rem, 2.5rem);
       padding-block: 2rem;
       text-align: center;
-      color: rgb(236,223,222);
+      color: $section3-text-color;
     }
     .section3Desc{
       .email{
         padding-bottom: 5rem;
         p{
-          @include FS-flex(1rem, 2, 1rem, 2rem);
-          color: rgb(236,223,222);
+          @include FS-flex(1rem, 2, 0.3rem, 2rem);
+          color: $section3-text-color;
         }
       }
     }

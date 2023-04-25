@@ -1,5 +1,5 @@
 import img1Section2 from '../public/img/img2.png';
-import img2Section2 from '../public/img/img3.png';
+import img2Section2 from '../public/img/img3.jpg';
 import img3Section2 from '../public/img/img4.png';
 
 

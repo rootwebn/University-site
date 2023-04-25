@@ -1,12 +1,16 @@
 $color-text: rgb(143, 225, 119);
 $section1-background-color: rgb(22, 115, 102);
 $section2-background-color: rgb(150, 74, 71);
-$section2-items-color: rgb(220, 217, 209);
+$section3-background-color: rgb(57, 50, 204);
+$section4-background-color: rgb(187, 214, 197);
 $header-background-color: rgba(22, 115, 101, 1);
+$section2-items-color: rgb(220, 217, 209);
 $btn-background-color: rgb(22, 115, 102);
-$drop-down-menu-background-color: rgb(63,119,80);
-$drop-down-menu-text-color: rgb(234,200,135);
-$drop-down-menu-text-color-hover: rgb(243,75,72);
+$drop-down-menu-background-color: rgb(63, 119, 80);
+$drop-down-menu-text-color: rgb(234, 200, 135);
+$drop-down-menu-text-color-hover: rgb(243, 75, 72);
+$section3-text-color: rgb(236, 223, 222);
+$section4-text-color-hover: rgb(237, 36, 26);
 
 $paddingHeader: 1rem min(10vw, 10rem) 2rem min(10vw, 10rem);
 $paddingHeaderSmallScreen: 1rem min(5vw, 2rem) 2rem min(5vw, 2rem);
@@ -14,6 +18,7 @@ $paddingSections: 0 min(10vw, 10rem);
 $paddingSectionMedium: 0 min(5vw, 5rem) 2rem min(5vw, 5rem);
 $paddingSectionsSmallScreen: 0 min(5vw, 1rem) 1rem min(5vw, 1rem);
 $paddingSection2: 5rem min(10vw, 10rem);
+$paddingSection4: 1rem min(10vw, 10rem);
 
 @mixin FS-flex($base-fs, $fs-scaling, $min-fs, $max-fs) {
   font-size: clamp(
