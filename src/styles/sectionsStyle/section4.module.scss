@@ -9,12 +9,13 @@
       @include FS-flex(1rem, 4, 0.8rem, 2rem);
     }
     .itemContent{
-      padding-block: 1rem;
       p{
+        padding-block: 1rem;
         text-align: start;
         @include FS-flex(1rem, 4, 0.5rem, 1.2rem);
         a{
           @include FS-flex(1rem, 4, 0.5rem, 1.2rem);
+          cursor: pointer;
         }
         a:hover{
           color: $section4-text-color-hover;
