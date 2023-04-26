@@ -3,28 +3,44 @@ import { section2Data } from '../../src/db.js'
 import Image from 'next/image'
 import Link from 'next/link'
 import { raleWay, sora } from '@/pages/_app'
-
+import { motion } from 'framer-motion'
+import { section2Title } from '@/variants'
 
 const Section2 = () => {
   return (
-    <div className={s.section2Container} id='homework'>
-      <h1 className={sora.className}>
+    <motion.div
+      initial='initial'
+      whileInView={'animate'}
+      viewport={{ amount: 0.2, once: true }}
+      className={s.section2Container}
+      id='homework'
+    >
+      <motion.h1
+        variants={section2Title}
+        className={sora.className}>
         Homeworks
-      </h1>
+      </motion.h1>
       <div className={s.section2Layout}>
-        <div className={s.containerItems}>
+        <motion.div
+          initial='initial'
+          whileInView={'animate'}
+          viewport={{ amount: 0.5, once: true }}
+          className={s.containerItems}>
           {section2Data.map((item) => (
-            <div
+            <motion.div
+              variants={item.animation}
               key={item.id}
               className={s.item}
             >
-              <Image
-                className={s.itemImage}
-                src={item.imgSrc}
-                alt='imgItem'
-                width={1000}
-                height={1000}
-              />
+              <div className={s.itemImageContainer}>
+                <Image
+                  className={s.itemImage}
+                  src={item.imgSrc}
+                  alt='imgItem'
+                  width={1200}
+                  height={800}
+                />
+              </div>
               <div className={s.itemHeader}>
                 <p className={sora.className}>{item.header}</p>
               </div>
@@ -53,13 +69,12 @@ const Section2 = () => {
                   <p className={sora.className}>{item.date}</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   )
 }
-console.log(section2Data);
 
 export default Section2;

@@ -3,6 +3,13 @@ import s from '../../src/styles/sectionsStyle/section1.module.scss'
 import Link from 'next/link';
 import Image from 'next/image';
 import img1 from '../../public/img/img1.png'
+import { motion } from 'framer-motion';
+import {
+  animationTitle,
+  animationDesc,
+  animationSubTitle,
+  animationImg
+} from '@/variants';
 
 const Section1 = () => {
   const btnClassName1 = s.section1Btn + " " + sora.className;
@@ -12,29 +19,51 @@ const Section1 = () => {
       <div className={s.sectionLayout}>
         <div className={s.sectionDesc}>
           <div className={s.title}>
-            <p className={sora.className}>
+            <motion.p
+              variants={animationTitle}
+              initial='initial'
+              animate='animate'
+              className={sora.className}
+            >
               On this Site will be published homeworks from university subjects.
-            </p>
-            <p className={sora.className}>
+            </motion.p>
+            <motion.p
+              variants={animationSubTitle}
+              initial='initial'
+              animate='animate'
+              className={sora.className}
+            >
               Computer Science
-            </p>
+            </motion.p>
           </div>
           <hr />
           <div className={s.desc}>
-            <p className={sora.className}>
+            <motion.p
+              variants={animationDesc}
+              initial='initial'
+              animate='animate'
+              className={sora.className}
+            >
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Ab omnis vel et, laboriosam quae repudiandae?
-            </p>
-            <div>
-            </div>
+            </motion.p>
           </div>
         </div>
-        <button className={btnClassName1}>
-          <Link href={'/'}>Open Now</Link>
-        </button>
-        <div className={s.sectionImg}>
+        <motion.button
+          variants={animationTitle}
+          initial='initial'
+          animate='animate'
+          className={btnClassName1}
+        >
+          <Link href={'#homework'}>Open Now</Link>
+        </motion.button>
+        <motion.div
+          variants={animationImg}
+          initial='initial'
+          animate='animate'
+          className={s.sectionImg}>
           <Image src={img1} alt='imgSection1' />
-        </div>
+        </motion.div>
       </div>
     </div>
   )

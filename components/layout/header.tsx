@@ -1,14 +1,28 @@
 import s from '../../src/styles/layoutStyle/Header.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import HeaderMenu from '../headerMenu';
 import imgBtn from '../../public/img/img6.svg'
-import { fauna, montsserat, raleWay, sora } from '@/pages/_app';
+import { raleWay, sora } from '@/pages/_app';
+import { motion } from "framer-motion"
+import { MenuDropDown, MenuDropDownBtn, headerMenuBtnDropDown, headerMenuTitle } from '@/variants';
 
 const Header = () => {
   const [headerSnap, setHeaderSnap] = useState(false);
   const [menuOpened, setMenuOpened] = useState(false);
+  const dropDownMenuRef = useRef(null as any);
+  const AnimatedLink = motion(Link);
+
+  const handleMenu = () => {
+    setMenuOpened(!menuOpened);
+  };
+
+  const handleBodyClick = (e: Event) => {
+    if (dropDownMenuRef.current && !dropDownMenuRef.current.contains(e.target as Node)) {
+      setMenuOpened(false);
+    }
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -26,22 +40,38 @@ const Header = () => {
     };
   }, []);
 
-  const handleMenu = () => {
-    setMenuOpened(!menuOpened);
-  }
+  useEffect(() => {
+    document.body.addEventListener('click', handleBodyClick);
+    return () => {
+      document.body.removeEventListener('click', handleBodyClick);
+    };
+  }, []);
 
   return (
-    <div className={s.headerLayout} id='home'>
+    <div
+      className={s.headerLayout}
+      id='home'
+    >
       <div className={s.headerContent}>
-        <div className={s.headerTitle}>
+        <motion.div
+          variants={headerMenuTitle}
+          initial='initial'
+          animate='animate'
+          className={s.headerTitle}>
           <Link href={'https://university-site-six.vercel.app'} className={sora.className}>
             Site Of Homeworks
           </Link>
-        </div>
+        </motion.div>
         <div className={s.headerMenu}>
           {!headerSnap && <HeaderMenu />}
           {headerSnap && (
-            <button className={s.dropDownBtn}>
+            <motion.button
+              variants={headerMenuBtnDropDown}
+              initial='initial'
+              animate='animate'
+              className={s.dropDownBtn}
+              type='button'
+            >
               <Image
                 src={imgBtn}
                 width={50}
@@ -51,23 +81,49 @@ const Header = () => {
                 aria-expanded={menuOpened}
               >
               </Image>
-            </button>
+            </motion.button>
           )}
           {menuOpened && (
-            <nav className={s.dropDownMenu}>
-              <Link href={'#home'} className={raleWay.className}>
+            <motion.nav
+              variants={MenuDropDown}
+              initial="hidden"
+              animate={menuOpened ? "visible" : "hidden"}
+              exit="exit"
+              className={s.dropDownMenu}
+            >
+              <AnimatedLink
+                variants={MenuDropDownBtn}
+                whileHover="hover"
+                whileTap="tap"
+                href={'#home'}
+                onClick={handleMenu}
+                className={raleWay.className}
+              >
                 Home
-              </Link>
+              </AnimatedLink>
               <hr />
-              <Link href={'#homework'} className={raleWay.className}>
+              <AnimatedLink
+                variants={MenuDropDownBtn}
+                whileHover="hover"
+                whileTap="tap"
+                href={'#homework'}
+                onClick={handleMenu}
+                className={raleWay.className}
+              >
                 Homeworks
-              </Link>
+              </AnimatedLink>
               <hr />
-              <Link href={'#contact'} className={raleWay.className}>
+              <AnimatedLink
+                variants={MenuDropDownBtn}
+                whileHover="hover"
+                whileTap="tap"
+                href={'#contact'}
+                onClick={handleMenu}
+                className={raleWay.className}>
                 Contact Me
-              </Link>
+              </AnimatedLink>
               <hr />
-            </nav>
+            </motion.nav>
           )}
         </div>
       </div>

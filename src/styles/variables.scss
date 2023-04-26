@@ -1,23 +1,40 @@
-$color-text: rgb(143, 225, 119);
-$section1-background-color: rgb(22, 115, 102);
-$section2-background-color: rgb(150, 74, 71);
-$section3-background-color: rgb(57, 50, 204);
-$section4-background-color: rgb(187, 214, 197);
 $header-background-color: rgba(22, 115, 101, 1);
-$section2-items-color: rgb(220, 217, 209);
-$btn-background-color: rgb(22, 115, 102);
 $drop-down-menu-background-color: rgb(63, 119, 80);
 $drop-down-menu-text-color: rgb(234, 200, 135);
 $drop-down-menu-text-color-hover: rgb(243, 75, 72);
+
+$section1-text-color: rgb(143, 225, 119);
+$section1-background-color: rgb(22, 115, 102);
+$section1-btn-background-color: rgb(22, 115, 102);
+
+$section2-background-color: rgb(150, 74, 71);
+$section2-items-color: rgb(220, 217, 209);
+
+$section3-background-color: rgb(57, 50, 204);
 $section3-text-color: rgb(236, 223, 222);
+$section3-text-color-hover: rgba(11, 222, 156, 1);
+
+$section4-background-color: rgb(187, 214, 197);
 $section4-text-color-hover: rgb(237, 36, 26);
 
 $paddingHeader: 1rem min(10vw, 10rem) 2rem min(10vw, 10rem);
 $paddingHeaderSmallScreen: 1rem min(5vw, 2rem) 2rem min(5vw, 2rem);
+
 $paddingSections: 0 min(10vw, 10rem);
 $paddingSectionMedium: 0 min(5vw, 5rem) 2rem min(5vw, 5rem);
 $paddingSectionsSmallScreen: 0 min(5vw, 1rem) 1rem min(5vw, 1rem);
-$paddingSection2: 5rem min(10vw, 10rem);
+
+$paddingSection1Desc: min(10vh, 2rem) 0;
+
+$paddingSection2: 2rem min(10vw, 10rem);
+$paddingSection2ItemSize80: 0.5rem 1rem 0.5rem 0.5rem;
+$paddingSection2ItemSize45: 1rem 0.2rem 1rem 0.2rem;
+$paddingSection2ItemTag: 0 0.5rem;
+$paddingSection2ItemDesc: 0 0 0 1rem;
+$paddingSection2ItemDescSize45: 0.2rem;
+$paddingSection2Item1: 1rem 0;
+$paddingSection2Item1Desc: 1rem 1rem 0 1rem;
+
 $paddingSection4: 1rem min(10vw, 10rem);
 
 @mixin FS-flex($base-fs, $fs-scaling, $min-fs, $max-fs) {
@@ -28,7 +45,7 @@ $paddingSection4: 1rem min(10vw, 10rem);
   );
 }
 
-@mixin itemStyle() {
+@mixin Section2ItemStyle() {
   display: grid;
   background-color: $section2-items-color;
   padding: 0.1rem 2rem;
@@ -36,7 +53,7 @@ $paddingSection4: 1rem min(10vw, 10rem);
   row-gap: 0.1rem;
 }
 
-@mixin itemBtnStyle() {
+@mixin Section2ItemBtnStyle() {
   display: flex;
   justify-content: flex-end;
   grid-row: 1/2;
@@ -55,4 +72,31 @@ $paddingSection4: 1rem min(10vw, 10rem);
     border: 2px solid red;
     color: red;
   }
+}
+
+@mixin Section1StyleBtn(){
+  color: $section1-text-color;
+  @include FS-flex(1rem, 4, 1rem, 1.5rem);
+  background-color: black;
+  border: 2px solid $section1-btn-background-color;
+  border-radius: 2rem;
+  padding: 0.5rem 1rem;
+  max-width: 35%;
+}
+
+@mixin ImageAdaptiveContainer() {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+  overflow: hidden;
+}
+
+@mixin ImageAdaptive() {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  max-width: 100vw;
 }

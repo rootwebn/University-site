@@ -15,10 +15,22 @@
     }
     .section3Desc{
       .email{
+        display: flex;
+        align-items: center;
         padding-bottom: 5rem;
-        p{
+        a{
+          padding-left: 0.5rem;
           @include FS-flex(1rem, 2, 0.3rem, 2rem);
           color: $section3-text-color;
+        }
+        a:hover{
+          color: $section3-text-color-hover;
+          transition: 0.2s linear;
+        }
+        img{
+          margin-top: 0.2%;
+          display: flex;
+          justify-content: flex-end;
         }
       }
     }
