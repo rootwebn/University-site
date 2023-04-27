@@ -4,6 +4,7 @@ export const animationTitle = {
   initial: {
     opacity: 0.5,
     x: -200,
+    willChange: "opacity, transform",
   },
   animate: {
     opacity: 1,
@@ -17,6 +18,7 @@ export const animationDesc = {
   initial: {
     opacity: 0.5,
     x: -200,
+    willChange: "opacity, transform",
   },
   animate: {
     opacity: 1,
@@ -30,6 +32,7 @@ export const animationSubTitle = {
   initial: {
     opacity: 0.5,
     x: -200,
+    willChange: "opacity, transform",
   },
   animate: {
     opacity: 1,
@@ -43,6 +46,7 @@ export const animationImg = {
   initial: {
     opacity: 0.5,
     x: 200,
+    willChange: "opacity, transform",
   },
   animate: {
     opacity: 1,
@@ -171,6 +175,7 @@ export const section2Title = {
   initial: {
     opacity: 0,
     y: -50,
+    willChange: "opacity, transform",
   },
   animate: {
     opacity: 1,
@@ -184,6 +189,7 @@ export const section2Item1 = {
   initial: {
     opacity: 0,
     x: -50,
+    willChange: "opacity, transform",
   },
   animate: {
     opacity: 1,
@@ -197,6 +203,7 @@ export const section2Item2 = {
   initial: {
     opacity: 0,
     y: -50,
+    willChange: "opacity, transform",
   },
   animate: {
     opacity: 1,
@@ -210,6 +217,7 @@ export const section2Item3 = {
   initial: {
     opacity: 0,
     x: 50,
+    willChange: "opacity, transform",
   },
   animate: {
     opacity: 1,
@@ -261,7 +269,7 @@ export const section4Title = {
 export const section4Item1 = {
   initial: {
     opacity: 0,
-    x: -500,
+    x: -100,
   },
   animate: {
     opacity: 1,
@@ -274,7 +282,7 @@ export const section4Item1 = {
 export const section4Item2 = {
   initial: {
     opacity: 0,
-    x: 500,
+    x: 100,
   },
   animate: {
     opacity: 1,
@@ -287,7 +295,7 @@ export const section4Item2 = {
 export const section4Item3 = {
   initial: {
     opacity: 0,
-    x: -500,
+    x: -100,
   },
   animate: {
     opacity: 1,
@@ -300,7 +308,7 @@ export const section4Item3 = {
 export const section4Item4 = {
   initial: {
     opacity: 0,
-    x: 500,
+    x: 100,
   },
   animate: {
     opacity: 1,

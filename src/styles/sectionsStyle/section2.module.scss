@@ -9,11 +9,11 @@
   }
   background-color: $section2-background-color;
   padding: $paddingSection2;
-  h1 {
-    text-align: center;
-    padding-bottom: 2rem;
-  }
   .section2Layout {
+    h1 {
+      text-align: center;
+      padding-bottom: 2rem;
+    }
     .containerItems {
       @media screen and (max-width: 80em) {
         grid-template-rows: none;
@@ -178,7 +178,7 @@
         padding-block: 1rem;
         .itemImageContainer {
           @media screen and (max-width: 45em) {
-            grid-row: 2/3; 
+            grid-row: 2/3;
           }
           .itemImage {
             @media screen and (max-width: 80em) {
@@ -237,7 +237,7 @@
         }
         .itemImageContainer {
           @media screen and (max-width: 45em) {
-            grid-row: 2/3; 
+            grid-row: 2/3;
           }
           .itemImage {
             @media screen and (max-width: 45em) {
