@@ -1,70 +1,59 @@
-import { raleWay, sora } from '@/pages/_app';
 import s from '../../src/styles/sectionsStyle/section1.module.scss'
-import Link from 'next/link';
-import Image from 'next/image';
-import img1 from '../../public/img/img1.png'
-import { motion } from 'framer-motion';
-import {
-  animationTitle,
-  animationDesc,
-  animationSubTitle,
-  animationImg
-} from '@/variants';
+import { useState, useEffect } from 'react';
+import Section1Layout from '../section1Layout';
+import Section1LayoutSmall from '../section1LayoutForSmallScreen';
 
 const Section1 = () => {
-  const btnClassName1 = s.section1Btn + " " + sora.className;
+  const [pageLoaded, setPageLoaded] = useState(false);
+  const [shouldAnimate, setShouldAnimate] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const viewportWidth = window.innerWidth;
+      if (viewportWidth <= 760) {
+        setShouldAnimate(true);
+      }
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleLoad = () => {
+      setPageLoaded(true);
+    };
+    handleLoad();
+    window.addEventListener('load', handleLoad);
+
+    return () => {
+      window.removeEventListener('load', handleLoad);
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleLoad = () => {
+      setPageLoaded(true);
+    };
+
+    window.addEventListener('load', handleLoad);
+    handleLoad();
+    return () => {
+      window.removeEventListener('load', handleLoad);
+    };
+  }, []);
 
   return (
     <div className={s.section1Container}>
-      <div className={s.sectionLayout}>
-        <div className={s.sectionDesc}>
-          <div className={s.title}>
-            <motion.p
-              variants={animationTitle}
-              initial='initial'
-              animate='animate'
-              className={sora.className}
-            >
-              On this Site will be published homeworks from university subjects.
-            </motion.p>
-            <motion.p
-              variants={animationSubTitle}
-              initial='initial'
-              animate='animate'
-              className={sora.className}
-            >
-              Computer Science
-            </motion.p>
-          </div>
-          <hr />
-          <div className={s.desc}>
-            <motion.p
-              variants={animationDesc}
-              initial='initial'
-              animate='animate'
-              className={sora.className}
-            >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Ab omnis vel et, laboriosam quae repudiandae?
-            </motion.p>
-          </div>
-        </div>
-        <motion.button
-          variants={animationTitle}
-          initial='initial'
-          animate='animate'
-          className={btnClassName1}
-        >
-          <Link href={'#homework'}>Open Now</Link>
-        </motion.button>
-        <motion.div
-          variants={animationImg}
-          initial='initial'
-          animate='animate'
-          className={s.sectionImg}>
-          <Image src={img1} alt='imgSection1' />
-        </motion.div>
-      </div>
+      {pageLoaded && shouldAnimate ?(
+        <Section1LayoutSmall/>
+      ):(
+        <Section1Layout/>
+      )}
     </div>
   )
 }

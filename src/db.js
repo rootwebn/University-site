@@ -3,8 +3,11 @@ import img2Section2 from '../public/img/img3.jpg';
 import img3Section2 from '../public/img/img4.png';
 import { 
   section2Item1, 
+  section2Item1Small, 
   section2Item2,
+  section2Item2Small,
   section2Item3,
+  section2Item3Small,
   section4Item1,
   section4Item2,
   section4Item3,
@@ -15,6 +18,7 @@ export const section2Data = [
   {
     id: 0,
     animation: section2Item1,
+    animationSmallScreen: section2Item1Small,
     header: 'Practical task 1.8-1.9',
     tagName: 'Practical tasks',
     imgSrc: img3Section2,
@@ -25,6 +29,7 @@ export const section2Data = [
   {
     id: 1,
     animation: section2Item2,
+    animationSmallScreen: section2Item2Small,
     header: 'Independent task',
     tagName: 'Tasks',
     imgSrc: img2Section2,
@@ -35,6 +40,7 @@ export const section2Data = [
   {
     id: 2,
     animation: section2Item3,
+    animationSmallScreen: section2Item3Small,
     header: 'Practical task 1.7',
     tagName: 'Practical tasks',
     imgSrc: img1Section2,

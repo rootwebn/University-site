@@ -1,24 +1,41 @@
 import s from '../../src/styles/sectionsStyle/section2.module.scss'
-import { section2Data } from '../../src/db.js'
-import Image from 'next/image'
-import Link from 'next/link'
-import { raleWay, sora } from '@/pages/_app'
 import { motion } from 'framer-motion'
-import { section2Title } from '@/variants'
 import { useState, useEffect } from 'react'
+import { sora } from '@/pages/_app';
+import { section2Data } from '@/db';
+import Image from 'next/image';
+import Link from 'next/link';
+import { section2Title, section2TitleSmallScreen } from '@/variants';
 
 const Section2 = () => {
   const [pageLoaded, setPageLoaded] = useState(false);
+  const [shouldAnimate, setShouldAnimate] = useState(false);
+  const animVariant1 = section2TitleSmallScreen;
+  const animVariant2 = section2Title;
 
   useEffect(() => {
-    console.log('useEffect called');
+    const handleResize = () => {
+      const viewportWidth = window.innerWidth;
+      if (viewportWidth <= 760) {
+        setShouldAnimate(true);
+      }
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
     const handleLoad = () => {
       setPageLoaded(true);
     };
-
-    window.addEventListener('load', handleLoad);
     handleLoad();
-    console.log('window loaded');
+    window.addEventListener('load', handleLoad);
+
     return () => {
       window.removeEventListener('load', handleLoad);
     };
@@ -28,14 +45,14 @@ const Section2 = () => {
     <motion.div
       initial='initial'
       whileInView={'animate'}
-      viewport={{ amount: 0.2, once: true }}
+      viewport={{ amount: 0.3, once: true }}
       className={s.section2Container}
       id='homework'
     >
       {pageLoaded && (
         <div className={s.section2Layout}>
           <motion.h1
-            variants={section2Title}
+            variants={shouldAnimate ? animVariant1 : animVariant2}
             className={sora.className}>
             Homeworks
           </motion.h1>
@@ -46,7 +63,7 @@ const Section2 = () => {
             className={s.containerItems}>
             {section2Data.map((item) => (
               <motion.div
-                variants={item.animation}
+                variants={shouldAnimate ? item.animationSmallScreen : item.animation}
                 key={item.id}
                 className={s.item}
               >
@@ -92,7 +109,6 @@ const Section2 = () => {
           </motion.div>
         </div>
       )}
-
     </motion.div>
   )
 }
