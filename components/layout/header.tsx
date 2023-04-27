@@ -90,7 +90,7 @@ const Header = () => {
           {!headerSnap && <HeaderMenu />}
           {headerSnap && (
             <motion.button
-              variants={shouldAnimate ? headerMenuBtnDropDown : headerMenuBtnDropDownSmall}
+              variants={shouldAnimate ? headerMenuBtnDropDownSmall : headerMenuBtnDropDown}
               initial='initial'
               animate='animate'
               className={s.dropDownBtn}
