@@ -24,7 +24,7 @@ const Section2 = () => {
         <motion.div
           initial='initial'
           whileInView={'animate'}
-          viewport={{ amount: 0.5, once: true }}
+          viewport={{ amount: 0.4, once: true }}
           className={s.containerItems}>
           {section2Data.map((item) => (
             <motion.div
