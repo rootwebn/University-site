@@ -136,6 +136,21 @@ export const headerMenuTitle = {
     },
   },
 };
+
+export const headerMenuTitleSmall = {
+  initial: {
+    opacity: 1,
+    x: 0,
+  },
+  animate: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0,
+    },
+  },
+};
+
 export const headerMenuBtnDropDown = {
   initial: {
     opacity: 0.5,
@@ -146,6 +161,20 @@ export const headerMenuBtnDropDown = {
     x: 0,
     transition: {
       duration: 0.8,
+    },
+  },
+};
+
+export const headerMenuBtnDropDownSmall = {
+  initial: {
+    opacity: 1,
+    x: 0,
+  },
+  animate: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0,
     },
   },
 };

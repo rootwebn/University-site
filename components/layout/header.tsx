@@ -6,13 +6,37 @@ import HeaderMenu from '../headerMenu';
 import imgBtn from '../../public/img/img6.svg'
 import { raleWay, sora } from '@/pages/_app';
 import { motion } from "framer-motion"
-import { MenuDropDown, MenuDropDownBtn, headerMenuBtnDropDown, headerMenuTitle } from '@/variants';
+import {
+  MenuDropDown,
+  MenuDropDownBtn,
+  headerMenuBtnDropDown,
+  headerMenuBtnDropDownSmall,
+  headerMenuTitle,
+  headerMenuTitleSmall
+} from '@/variants';
 
 const Header = () => {
   const [headerSnap, setHeaderSnap] = useState(false);
   const [menuOpened, setMenuOpened] = useState(false);
   const dropDownMenuRef = useRef(null as any);
   const AnimatedLink = motion(Link);
+  const [shouldAnimate, setShouldAnimate] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const viewportWidth = window.innerWidth;
+      if (viewportWidth <= 760) {
+        setShouldAnimate(true);
+      }
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const handleMenu = () => {
     setMenuOpened(!menuOpened);
@@ -54,7 +78,7 @@ const Header = () => {
     >
       <div className={s.headerContent}>
         <motion.div
-          variants={headerMenuTitle}
+          variants={shouldAnimate ? headerMenuTitle : headerMenuTitleSmall}
           initial='initial'
           animate='animate'
           className={s.headerTitle}>
@@ -66,7 +90,7 @@ const Header = () => {
           {!headerSnap && <HeaderMenu />}
           {headerSnap && (
             <motion.button
-              variants={headerMenuBtnDropDown}
+              variants={shouldAnimate ? headerMenuBtnDropDown : headerMenuBtnDropDownSmall}
               initial='initial'
               animate='animate'
               className={s.dropDownBtn}
